@@ -54,7 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentService.cs" />
+    <Compile Include="LikeService.cs" />
+    <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -67,6 +71,11 @@
     </ProjectReference>
     <ProjectReference Include="..\SocialMedia.Models\SocialMedia.Models.csproj">
       <Project>{15A457EB-39D5-4DA8-A20A-98803E1643DA}</Project>
+      <Project>{c9c0b229-95d7-4caf-8ec6-aa2dd8e38dc2}</Project>
+      <Name>SocialMedia.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialMedia.Models\SocialMedia.Models.csproj">
+      <Project>{15a457eb-39d5-4da8-a20a-98803e1643da}</Project>
       <Name>SocialMedia.Models</Name>
     </ProjectReference>
   </ItemGroup>
