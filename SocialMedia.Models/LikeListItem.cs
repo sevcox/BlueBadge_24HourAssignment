@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SocialMedia.Data
+namespace SocialMedia.Models
 {
-    public class Reply : Comment
+    public class LikeListItem
     {
-        [Key]
-        public int ReplyId { get; set; }
+        [Display(Name = "Liker")]
+        public Guid OwnerId { get; set; }
+        public int PostId { get; set; }
     }
 }
