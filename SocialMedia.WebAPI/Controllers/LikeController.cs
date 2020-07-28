@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using SocialMedia.Models;
 using SocialMedia.Services;
 using System;
 using System.Collections.Generic;
@@ -9,15 +10,29 @@ using System.Web.Http;
 
 namespace SocialMedia.WebAPI.Controllers
 {
+    
+
+    [Authorize]
     public class LikeController : ApiController
     {
-        [Authorize]
-        private PostService CreatePostService()
+        private LikeService CreateLikeService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var postService = new PostService(userId);
-
+            var likeService = new LikeService(userId);
+            return likeService;
         }
+        public IHttpActionResult Post(LikeCreate like)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            var service = CreateLikeService();
 
+            if (!service.CreateLike(like))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
+}
+
