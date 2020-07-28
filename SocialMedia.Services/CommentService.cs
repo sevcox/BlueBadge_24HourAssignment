@@ -23,7 +23,7 @@ namespace SocialMedia.Services
             var entity =
                 new Comment()
                 {
-                    OwnerId = _userId,
+                    PostId = model.PostId,
                     Text = model.Text,
                 };
             using (var ctx = new ApplicationDbContext())
@@ -46,7 +46,8 @@ namespace SocialMedia.Services
                         {
                             OwnerId = _userId,
                             CommentId = e.CommentId,
-                            Text = e.Text
+                            Text = e.Text,
+                            PostId = e.PostId
                         }
 
                         );
