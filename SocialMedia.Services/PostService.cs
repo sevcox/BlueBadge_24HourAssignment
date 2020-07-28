@@ -66,7 +66,7 @@ namespace SocialMedia.Services
                 return
                  new PostDetail
                  {
-                     GetPostById = entity.PostId,
+                     PostId = entity.PostId,
                      Title = entity.Title,
                      Text = entity.Text,
                      OwnerId = entity.OwnerId

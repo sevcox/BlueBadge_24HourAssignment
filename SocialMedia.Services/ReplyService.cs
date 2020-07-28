@@ -12,12 +12,12 @@ namespace SocialMedia.Services
     {
         private readonly Guid _userId;
 
-        private ReplyService(Guid userId)
+        public ReplyService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateReplu(ReplyCreate model)
+        public bool CreateReply(ReplyCreate model)
         {
             var entity =
                 new Reply()
@@ -28,6 +28,7 @@ namespace SocialMedia.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Comments.Add(entity);
+                ctx.Replies.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
 
@@ -44,34 +45,32 @@ namespace SocialMedia.Services
                         e =>
                         new ReplyListItem
                         {
-                           
-
+                            CommentId = e.CommentId,
+                            ReplyComment = e.ReplyComment
+                        }    
                         );
                 return query.ToArray();
-
 
             }
         }
 
-        public ReplyDetail GetReply(int id)
+        public ReplyDetail GetRepById(int id) 
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Comments
-                    .Single(e => e.ReplyId == id);
+                    .Replies.Single(e => e.ReplyId == id);
                 return
-                    new ReplyDetail
+                    new ReplyDetail 
                     {
                         ReplyId = entity.ReplyId,
-
-
-
+                        ReplyComment = entity.ReplyComment,
+                        OwnerId = entity.OwnerId
                     };
-
             }
         }
+
 
         public bool DeleteReply(int replyId)
         {
@@ -79,11 +78,16 @@ namespace SocialMedia.Services
             {
                 var entity =
                     ctx
-                    .Comments
+
+                    .Replies
                     .Single(e => e.ReplyId == replyId);
 
-                ctx.Comments.Remove(entity);
+                ctx.Replies.Remove(entity);
+
                 return ctx.SaveChanges() == 1;
+
+
+
             }
         }
     }
