@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace SocialMedia.Models
 {
 
-
     public class LikeListItem
     {
         [Display(Name = "Liker")]
