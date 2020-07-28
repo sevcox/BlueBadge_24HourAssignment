@@ -106,6 +106,10 @@
     <Compile Include="Migrations\202007281830576_UpdateLike.Designer.cs">
       <DependentUpon>202007281830576_UpdateLike.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007282301384_Newmigration.cs" />
+    <Compile Include="Migrations\202007282301384_Newmigration.Designer.cs">
+      <DependentUpon>202007282301384_Newmigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007281830576_UpdateLike.resx">
       <DependentUpon>202007281830576_UpdateLike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007282301384_Newmigration.resx">
+      <DependentUpon>202007282301384_Newmigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
