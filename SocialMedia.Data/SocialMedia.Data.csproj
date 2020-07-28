@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202007280312555_AddColumnToUser.Designer.cs">
       <DependentUpon>202007280312555_AddColumnToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007281817030_NewMigration.cs" />
+    <Compile Include="Migrations\202007281817030_NewMigration.Designer.cs">
+      <DependentUpon>202007281817030_NewMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007280312555_AddColumnToUser.resx">
       <DependentUpon>202007280312555_AddColumnToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007281817030_NewMigration.resx">
+      <DependentUpon>202007281817030_NewMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -65,7 +65,6 @@ namespace SocialMedia.Services
                     new ReplyDetail 
                     {
                         ReplyId = entity.ReplyId,
-                        ReplyComment = entity.ReplyComment,
                         OwnerId = entity.OwnerId
                     };
             }
