@@ -11,7 +11,5 @@ namespace SocialMedia.Data
     {
         [Key]
         public int ReplyId { get; set; }
-        [Required]
-        public Comment ReplyComment { get; set; }
     }
 }

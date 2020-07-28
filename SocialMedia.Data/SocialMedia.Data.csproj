@@ -94,9 +94,17 @@
     <Compile Include="Migrations\202007280312555_AddColumnToUser.Designer.cs">
       <DependentUpon>202007280312555_AddColumnToUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007281817030_NewMigration.cs" />
-    <Compile Include="Migrations\202007281817030_NewMigration.Designer.cs">
-      <DependentUpon>202007281817030_NewMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202007281751091_MigrationAfterAddingReplies.cs" />
+    <Compile Include="Migrations\202007281751091_MigrationAfterAddingReplies.Designer.cs">
+      <DependentUpon>202007281751091_MigrationAfterAddingReplies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007281820114_UpdateReply.cs" />
+    <Compile Include="Migrations\202007281820114_UpdateReply.Designer.cs">
+      <DependentUpon>202007281820114_UpdateReply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007281830576_UpdateLike.cs" />
+    <Compile Include="Migrations\202007281830576_UpdateLike.Designer.cs">
+      <DependentUpon>202007281830576_UpdateLike.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -115,8 +123,14 @@
     <EmbeddedResource Include="Migrations\202007280312555_AddColumnToUser.resx">
       <DependentUpon>202007280312555_AddColumnToUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007281817030_NewMigration.resx">
-      <DependentUpon>202007281817030_NewMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007281751091_MigrationAfterAddingReplies.resx">
+      <DependentUpon>202007281751091_MigrationAfterAddingReplies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007281820114_UpdateReply.resx">
+      <DependentUpon>202007281820114_UpdateReply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007281830576_UpdateLike.resx">
+      <DependentUpon>202007281830576_UpdateLike.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

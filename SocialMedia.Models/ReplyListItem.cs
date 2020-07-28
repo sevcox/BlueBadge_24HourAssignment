@@ -11,6 +11,7 @@ namespace SocialMedia.Models
     public class ReplyListItem
     {
         public int CommentId { get; set; }
-        public Comment ReplyComment { get; set; }
+        public string Text { get; set; }
+        public int PostId { get; set; }
     }
 }

@@ -22,8 +22,9 @@ namespace SocialMedia.Services
             var entity =
                 new Reply()
                 {
-                    OwnerId = _userId,
-                    ReplyComment = model.ReplyComment
+                   Text = model.Text,
+                   CommentId = model.CommentId,
+                   PostId = model.PostId
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -45,9 +46,10 @@ namespace SocialMedia.Services
                         e =>
                         new ReplyListItem
                         {
-                            CommentId = e.CommentId,
-                            ReplyComment = e.ReplyComment
-                        }    
+                           CommentId = e.CommentId,  
+                           Text = e.Text,
+                           PostId = e.PostId
+                        }
                         );
                 return query.ToArray();
 
@@ -62,11 +64,14 @@ namespace SocialMedia.Services
                     ctx
                     .Replies.Single(e => e.ReplyId == id);
                 return
-                    new ReplyDetail 
-                    {
-                        ReplyId = entity.ReplyId,
-                        OwnerId = entity.OwnerId
-                    };
+
+                 new ReplyDetail
+                 {
+                     ReplyId = entity.ReplyId,
+                     Text = entity.Text,
+                     PostId = entity.PostId
+                 };
+
             }
         }
 

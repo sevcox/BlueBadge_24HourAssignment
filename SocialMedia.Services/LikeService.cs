@@ -22,7 +22,7 @@ namespace SocialMedia.Services
             var entity =
                 new Like()
                 {
-                    OwnerId = _userId,
+                    PostId = model.PostId
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -42,7 +42,8 @@ namespace SocialMedia.Services
                         e =>
                         new LikeListItem
                         {
-                            OwnerId = e.OwnerId
+                            OwnerId = e.OwnerId,
+                            PostId = e.PostId
                         }
                         );
 

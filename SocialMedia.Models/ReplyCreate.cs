@@ -13,6 +13,8 @@ namespace SocialMedia.Models
     {
         [Required]
         [MaxLength(8000)]
-        public Comment ReplyComment { get; set; }
+        public string Text { get; set; }
+        public int CommentId { get; set; }
+        public int PostId { get; set; }
     }
 }

@@ -13,10 +13,9 @@ namespace SocialMedia.Data
         [Key]
         public int LikeId { get; set; }
         [Required]
-        public int? PostId { get; set; }
+        public int PostId { get; set; }
         [ForeignKey(nameof(PostId))]
         public virtual Post Post { get; set; }
-        [Required]
         [Display(Name = "Liker")]
         public Guid OwnerId { get; set; }
     }
