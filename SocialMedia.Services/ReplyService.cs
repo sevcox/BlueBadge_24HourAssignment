@@ -22,8 +22,9 @@ namespace SocialMedia.Services
             var entity =
                 new Reply()
                 {
-                    OwnerId = _userId,
-                    ReplyComment = model.ReplyComment
+                   Text = model.Text,
+                   CommentId = model.CommentId,
+                   PostId = model.PostId
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -44,7 +45,8 @@ namespace SocialMedia.Services
                         new ReplyListItem
                         {
                             CommentId = e.CommentId,
-                            ReplyComment = e.ReplyComment
+                           Text = e.Text,
+                           PostId = e.PostId
                         }
                         );
 
@@ -64,8 +66,8 @@ namespace SocialMedia.Services
                  new ReplyDetail
                  {
                      ReplyId = entity.ReplyId,
-                     ReplyComment = entity.ReplyComment,
-                     OwnerId = entity.OwnerId
+                     Text = entity.Text,
+                     PostId = entity.PostId
                  };
 
             }

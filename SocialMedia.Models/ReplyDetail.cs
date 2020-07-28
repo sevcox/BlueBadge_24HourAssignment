@@ -13,6 +13,7 @@ namespace SocialMedia.Models
         public int ReplyId { get; set; }
         [Display(Name ="Author")]
         public Guid OwnerId { get; set; }
-        public Comment ReplyComment { get; set; }
+        public string Text { get; set; }
+        public int PostId { get; set; }
     }
 }

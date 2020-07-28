@@ -10,7 +10,7 @@ namespace SocialMedia.Models
     public class LikeDetail
     {
         public int LikeId { get; set; }
-        public int? PostId { get; set; }
+        public int PostId { get; set; }
         [Display(Name ="Liker")]
         public Guid OwnerId { get; set; }
     }

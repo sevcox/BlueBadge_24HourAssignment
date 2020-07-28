@@ -11,5 +11,6 @@ namespace SocialMedia.Models
     {
         [Display(Name = "Liker")]
         public Guid OwnerId { get; set; }
+        public int PostId { get; set; }
     }
 }
