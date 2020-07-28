@@ -13,7 +13,7 @@ namespace SocialMedia.Services
     {
         private readonly Guid _userId;
 
-        private CommentService(Guid userId)
+        public CommentService(Guid userId)
         {
             _userId = userId;
         }
@@ -33,7 +33,7 @@ namespace SocialMedia.Services
             }
 
         }
-        public IEnumerable<CommentListItem> GetPosts()
+        public IEnumerable<CommentListItem> GetComments()
         {
             using (var ctx = new ApplicationDbContext())
             {
