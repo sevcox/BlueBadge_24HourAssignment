@@ -24,11 +24,6 @@ namespace SocialMedia.Services
                 new Comment()
                 {
                     OwnerId = _userId,
-<<<<<<< HEAD
-                    PostId = model.PostId,
-                    CommentId = model.CommentId,
-=======
->>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
                     Text = model.Text,
                 };
             using (var ctx = new ApplicationDbContext())
@@ -38,42 +33,6 @@ namespace SocialMedia.Services
             }
 
         }
-<<<<<<< HEAD
-
-        public IEnumerable<CommentListItem> GetPosts()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Comments
-                    .Where(e => OwnerId == _userId && PostId == e.PostId)
-                    .Select(
-                        e =>
-                        new CommentListItem
-                        {
-                            OwnerId = _userId,
-                            CommentId = e.CommentId,
-                            Text = e.Text
-                        }
-
-                        );
-                return query.ToArray();
-
-
-            }
-        }
-
-        public bool DeleteCommment(int commentId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Comments
-                    .Single(e => e.CommentId == commentId);
-
-=======
         public IEnumerable<CommentListItem> GetPosts()
         {
             using (var ctx = new ApplicationDbContext())
@@ -122,7 +81,6 @@ namespace SocialMedia.Services
                     .Comments
                     .Single(e => e.CommentId == commentId);
 
->>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
                 ctx.Comments.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

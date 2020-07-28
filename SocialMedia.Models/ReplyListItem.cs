@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 namespace SocialMedia.Models
 {
     public class ReplyListItem
-<<<<<<< HEAD
-    { 
-=======
+
+    
+
     {
->>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
         public int CommentId { get; set; }
         public Comment ReplyComment { get; set; }
     }

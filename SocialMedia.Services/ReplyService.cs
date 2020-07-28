@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿using SocialMedia.Models;
-=======
-﻿using SocialMedia.Data;
 using SocialMedia.Models;
->>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
+﻿using SocialMedia.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +16,6 @@ namespace SocialMedia.Services
         {
             _userId = userId;
         }
-<<<<<<< HEAD
-        public bool CreateReply(ReplyCreate model)
-        {
-            var entity = 
-        }
-=======
 
         public bool CreateReply(ReplyCreate model)
         {
@@ -96,6 +86,5 @@ namespace SocialMedia.Services
             }
         }
 
->>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
     }
 }

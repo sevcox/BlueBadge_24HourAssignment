@@ -17,7 +17,7 @@ namespace SocialMedia.Services
             _userId = userId;
         }
 
-        public bool CreatePost(PostCreate model) //errors will not be settle until PostCreate model is made
+        public bool CreatePost(PostCreate model) 
         {
             var entity =
                 new Post()

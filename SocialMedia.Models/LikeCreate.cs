@@ -1,5 +1,4 @@
-﻿using SocialMedia.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,12 +7,9 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Models
 {
-    public class ReplyDetail
+    public class LikeCreate
     {
-        public int ReplyId { get; set; }
-
-        [Display(Name ="Author")]
+        [Display(Name = "Liker")]
         public Guid OwnerId { get; set; }
-        public Comment ReplyComment { get; set; }
     }
 }
