@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Models
 {
-    public class UserInfoModel
+    public class CommentCreate
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        [Required]
+        [MaxLength(8000)]
+        public string Text { get; set; }
     }
 }
