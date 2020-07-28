@@ -1,4 +1,5 @@
 ﻿using SocialMedia.Data;
+using SocialMedia.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -23,8 +24,11 @@ namespace SocialMedia.Services
                 new Comment()
                 {
                     OwnerId = _userId,
+<<<<<<< HEAD
                     PostId = model.PostId,
                     CommentId = model.CommentId,
+=======
+>>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
                     Text = model.Text,
                 };
             using (var ctx = new ApplicationDbContext())
@@ -34,6 +38,7 @@ namespace SocialMedia.Services
             }
 
         }
+<<<<<<< HEAD
 
         public IEnumerable<CommentListItem> GetPosts()
         {
@@ -68,6 +73,56 @@ namespace SocialMedia.Services
                     .Comments
                     .Single(e => e.CommentId == commentId);
 
+=======
+        public IEnumerable<CommentListItem> GetPosts()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Comments
+                    .Select(
+                        e =>
+                        new CommentListItem
+                        {
+                            OwnerId = _userId,
+                            CommentId = e.CommentId,
+                            Text = e.Text
+                        }
+
+                        );
+                return query.ToArray();
+            }
+        }
+        public CommentDetail GetCommentById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                     .Comments
+                     .Single(e => e.CommentId == id);
+                return
+                 new CommentDetail
+                 {
+                     CommentId = entity.CommentId,
+                     Text = entity.Text,
+                     OwnerId = entity.OwnerId,
+                     PostId = entity.PostId
+                 };
+            }
+        }
+
+        public bool DeleteCommment(int commentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Comments
+                    .Single(e => e.CommentId == commentId);
+
+>>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
                 ctx.Comments.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

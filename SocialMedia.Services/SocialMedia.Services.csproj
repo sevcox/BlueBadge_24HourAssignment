@@ -66,6 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SocialMedia.Data\SocialMedia.Data.csproj">
+      <Project>{C9C0B229-95D7-4CAF-8EC6-AA2DD8E38DC2}</Project>
+      <Name>SocialMedia.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialMedia.Models\SocialMedia.Models.csproj">
+      <Project>{15A457EB-39D5-4DA8-A20A-98803E1643DA}</Project>
       <Project>{c9c0b229-95d7-4caf-8ec6-aa2dd8e38dc2}</Project>
       <Name>SocialMedia.Data</Name>
     </ProjectReference>

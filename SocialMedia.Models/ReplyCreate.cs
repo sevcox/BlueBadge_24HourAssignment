@@ -1,5 +1,5 @@
-﻿using System;
-using System.CodeDom;
+﻿using SocialMedia.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,6 +12,6 @@ namespace SocialMedia.Models
     {
         [Required]
         [MaxLength(8000)]
-        public CodeComment ReplyComment { get; set; }
+        public Comment ReplyComment { get; set; }
     }
 }

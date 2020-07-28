@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿using SocialMedia.Models;
+=======
+﻿using SocialMedia.Data;
+using SocialMedia.Models;
+>>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +20,82 @@ namespace SocialMedia.Services
         {
             _userId = userId;
         }
+<<<<<<< HEAD
         public bool CreateReply(ReplyCreate model)
         {
             var entity = 
         }
+=======
+
+        public bool CreateReply(ReplyCreate model)
+        {
+            var entity =
+                new Reply()
+                {
+                    OwnerId = _userId,
+                    ReplyComment = model.ReplyComment
+                };
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Replies.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+        public IEnumerable<ReplyListItem> GetReplies()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Replies
+                    .Select(
+                        e =>
+                        new ReplyListItem
+                        {
+                            CommentId = e.CommentId,
+                            ReplyComment = e.ReplyComment
+                        }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public ReplyDetail GeReplyById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                     .Replies
+                     .Single(e => e.ReplyId == id);
+                return
+                 new ReplyDetail
+                 {
+                     ReplyId = entity.ReplyId,
+                     ReplyComment = entity.ReplyComment,
+                     OwnerId = entity.OwnerId
+                 };
+
+            }
+        }
+
+        public bool DeleteReply(int replyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Replies
+                    .Single(e => e.ReplyId == replyId);
+
+                ctx.Replies.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+>>>>>>> 110e4b2e5d4c8babad6701e1e5daeb82cdcce577
     }
 }
