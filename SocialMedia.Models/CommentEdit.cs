@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Models
 {
-    public class UserInfoModel
+    public class CommentEdit
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int CommentId { get; set; }
+        public string Text { get; set; }
+        [Display(Name = "Author")]
+        public int PostId { get; set; }
+
     }
 }

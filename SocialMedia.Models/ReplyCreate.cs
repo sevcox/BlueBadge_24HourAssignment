@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Models
 {
-    public class UserInfoModel
+    public class ReplyCreate
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        [Required]
+        [MaxLength(8000)]
+        public CodeComment ReplyComment { get; set; }
     }
 }
