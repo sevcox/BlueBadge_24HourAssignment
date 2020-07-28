@@ -8,88 +8,83 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Services
 {
-    public class PostService
+    public class ReplyService
     {
         private readonly Guid _userId;
 
-        public PostService(Guid userId)
+        private ReplyService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreatePost(PostCreate model) //errors will not be settle until PostCreate model is made
+        public bool CreateReplu(ReplyCreate model)
         {
             var entity =
-                new Post()
+                new Reply()
                 {
                     OwnerId = _userId,
-                    Title = model.Title,
-                    Text = model.Text
+                    ReplyComment = model.ReplyComment
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Posts.Add(entity);
+                ctx.Comments.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
 
         }
-        public IEnumerable<PostListItem> GetPosts()
+
+        public IEnumerable<ReplyListItem> GetReplies()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Posts
+                    .Replies
                     .Select(
                         e =>
-                        new PostListItem
+                        new ReplyListItem
                         {
-                            PostId = e.PostId,
-                            Title = e.Title,
-                            Text = e.Text
-                        }
+                           
 
                         );
-
                 return query.ToArray();
+
+
             }
         }
 
-        public PostDetail GetPostById(int id)
+        public ReplyDetail GetReply(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                     .Posts
-                     .Single(e => e.PostId == id);
+                    .Comments
+                    .Single(e => e.ReplyId == id);
                 return
-                 new PostDetail
-                 {
-                     GetPostById = entity.PostId,
-                     Title = entity.Title,
-                     Text = entity.Text,
-                     OwnerId = entity.OwnerId
+                    new ReplyDetail
+                    {
+                        ReplyId = entity.ReplyId,
 
-                 };
+
+
+                    };
 
             }
         }
 
-        public bool DeletePost(int postId)
+        public bool DeleteReply(int replyId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                    .Posts
-                    .Single(e => e.PostId == postId);
+                    .Comments
+                    .Single(e => e.ReplyId == replyId);
 
-                ctx.Posts.Remove(entity);
-
+                ctx.Comments.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-
     }
 }
